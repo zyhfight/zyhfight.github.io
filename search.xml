@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>WebController</title>
+    <url>/2019/06/25/WebController/</url>
+    <content><![CDATA[<h2 id="跨域请求支持"><a href="#跨域请求支持" class="headerlink" title="跨域请求支持"></a>跨域请求支持</h2><pre><code>/**
+ * AbstractJsonpResponseBodyAdvice 过时了;
+ * 使用ResponseBodyAdvice支持力度jsonp
+ * 支持跨域请求，主持jsonp
+ * @author : zyh
+ * @Description : com.demo.controller.advice
+ * @date : 2019-07-25 00:09
+ */
+@ControllerAdvice(basePackages = &quot;com.demo.controller&quot;)
+public class WebControllerJsonpAdvice extends AbstractJsonpResponseBodyAdvice {
+
+    public WebControllerJsonpAdvice() {
+        super(&quot;callback&quot;, &quot;jsonp&quot;);
+    }
+}</code></pre><a id="more"></a>
+
+<h2 id="WebMvcConfigurerAdapter"><a href="#WebMvcConfigurerAdapter" class="headerlink" title="WebMvcConfigurerAdapter"></a>WebMvcConfigurerAdapter</h2><pre><code>/**
+ * json adapter 配置
+ * controller返回json格式内容
+ * @author : zyh
+ * @Description : com.demo.conf
+ * @date : 2019-07-25 00:24
+ */
+@Configuration
+public class WebMvcConfAdapter extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer){
+        Map&lt;String, MediaType&gt; mediaTypeMap = new HashMap&lt;&gt;();
+        mediaTypeMap.put(&quot;json&quot;, MediaType.APPLICATION_JSON_UTF8);
+        mediaTypeMap.put(&quot;html&quot;, MediaType.TEXT_HTML);
+        configurer.favorPathExtension(false);
+        configurer.defaultContentType(MediaType.APPLICATION_JSON_UTF8);
+        configurer.ignoreAcceptHeader(true);
+        configurer.mediaTypes(mediaTypeMap);
+
+    }
+}</code></pre>]]></content>
+      <categories>
+        <category>SpringMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+</search>
