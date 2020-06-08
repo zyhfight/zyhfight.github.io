@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zyhfight.github.io/"/>
+  <updated>2019-09-16T16:39:53.101Z</updated>
+  <id>https://zyhfight.github.io/</id>
+  
+  <author>
+    <name>大坏蛋</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WebController</title>
+    <link href="https://zyhfight.github.io/2019/06/25/WebController/"/>
+    <id>https://zyhfight.github.io/2019/06/25/WebController/</id>
+    <published>2019-06-24T16:01:16.000Z</published>
+    <updated>2019-09-16T16:39:53.101Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="跨域请求支持"><a href="#跨域请求支持" class="headerlink" title="跨域请求支持"></a>跨域请求支持</h2><pre><code>/** * AbstractJsonpResponseBodyAdvice 过时了; * 使用ResponseBodyAdvice支持力度jsonp * 支持跨域请求，主持jsonp * @author : zyh * @Description : com.demo.controller.advice * @date : 2019-07-25 00:09 */@ControllerAdvice(basePackages = &quot;com.demo.controller&quot;)public class WebControllerJsonpAdvice extends AbstractJsonpResponseBodyAdvice {    public WebControllerJsonpAdvice() {        super(&quot;callback&quot;, &quot;jsonp&quot;);    }}</code></pre><a id="more"></a><h2 id="WebMvcConfigurerAdapter"><a href="#WebMvcConfigurerAdapter" class="headerlink" title="WebMvcConfigurerAdapter"></a>WebMvcConfigurerAdapter</h2><pre><code>/** * json adapter 配置 * controller返回json格式内容 * @author : zyh * @Description : com.demo.conf * @date : 2019-07-25 00:24 */@Configurationpublic class WebMvcConfAdapter extends WebMvcConfigurerAdapter {    @Override    public void configureContentNegotiation(ContentNegotiationConfigurer configurer){        Map&lt;String, MediaType&gt; mediaTypeMap = new HashMap&lt;&gt;();        mediaTypeMap.put(&quot;json&quot;, MediaType.APPLICATION_JSON_UTF8);        mediaTypeMap.put(&quot;html&quot;, MediaType.TEXT_HTML);        configurer.favorPathExtension(false);        configurer.defaultContentType(MediaType.APPLICATION_JSON_UTF8);        configurer.ignoreAcceptHeader(true);        configurer.mediaTypes(mediaTypeMap);    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;跨域请求支持&quot;&gt;&lt;a href=&quot;#跨域请求支持&quot; class=&quot;headerlink&quot; title=&quot;跨域请求支持&quot;&gt;&lt;/a&gt;跨域请求支持&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * AbstractJsonpResponseBodyAdvice 过时了;
+ * 使用ResponseBodyAdvice支持力度jsonp
+ * 支持跨域请求，主持jsonp
+ * @author : zyh
+ * @Description : com.demo.controller.advice
+ * @date : 2019-07-25 00:09
+ */
+@ControllerAdvice(basePackages = &amp;quot;com.demo.controller&amp;quot;)
+public class WebControllerJsonpAdvice extends AbstractJsonpResponseBodyAdvice {
+
+    public WebControllerJsonpAdvice() {
+        super(&amp;quot;callback&amp;quot;, &amp;quot;jsonp&amp;quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="SpringMVC" scheme="https://zyhfight.github.io/categories/SpringMVC/"/>
+    
+    
+      <category term="SpringMVC" scheme="https://zyhfight.github.io/tags/SpringMVC/"/>
+    
+  </entry>
+  
+</feed>
