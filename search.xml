@@ -42,7 +42,7 @@ public class WebMvcConfAdapter extends WebMvcConfigurerAdapter {
     }
 }</code></pre>]]></content>
       <categories>
-        <category>SpringMVC</category>
+        <category>技术</category>
       </categories>
       <tags>
         <tag>SpringMVC</tag>
@@ -333,7 +333,7 @@ public class DateTypeHandler extends BaseTypeHandler&lt;Date&gt; {
 &lt;/configuration&gt;</code></pre><p> 经测试，java Date在db存入timstamp。</p>
 ]]></content>
       <categories>
-        <category>Mybatis</category>
+        <category>技术</category>
       </categories>
       <tags>
         <tag>Mybatis</tag>
